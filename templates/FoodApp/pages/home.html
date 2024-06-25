@@ -1,0 +1,26 @@
+{% extends "FoodApp/includes/base.html" %}
+{% block content %}
+{% for fooditem in fooditems %}
+<div class="container py-5">
+    <br><br><br><br>
+    <div class="card shadow-sm">
+       <img src="{{ fooditem.image.url }}" alt="{{ fooditem.slug }}">
+        <div class="card-body">
+          <p class="card-text">{{ fooditem.des }}</p>
+          <p> Author: {{fooditem.author }}</p> 
+          <div class="d-flex justify-content-between align-items-center">
+            
+            <div class="btn-group">
+              <a href="{{ fooditem.food_url }}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button> </a>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>
+             
+            </div>
+            <small class="text-body-secondary">{{ fooditem.created_date }}</small>
+          </div>
+        </div>
+    
+      </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}
